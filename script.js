@@ -1,5 +1,5 @@
 function fetchLastPostDate(feedUrl) {
-    fetch(feedUrl)
+    fetch(feedUrl, { mode: 'no-cors' })
         .then(response => response.text())
         .then(data => {
             const parser = new DOMParser();
