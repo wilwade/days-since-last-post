@@ -1,5 +1,8 @@
 function fetchLastPostDate(feedUrl) {
-    fetch(feedUrl, { mode: 'no-cors' })
+    // Use the proxy service to bypass CORS issues
+    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(feedUrl)}`;
+
+    fetch(proxyUrl)
         .then(response => response.text())
         .then(data => {
             const parser = new DOMParser();
