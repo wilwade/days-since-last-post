@@ -3,10 +3,10 @@ function fetchLastPostDate(feedUrl) {
     const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(feedUrl)}`;
 
     fetch(proxyUrl)
-        .then(response => response.text())
+        .then(response => response.json())
         .then(data => {
             const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(data, 'text/xml');
+            const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
             // Extract pubDate from the first <item>
             const latestPostDateStr = xmlDoc.querySelector('channel > item > pubDate').textContent;
             const latestPostDate = new Date(latestPostDateStr);
