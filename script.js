@@ -16,7 +16,7 @@ function fetchLastPostDate(feedUrl) {
                 const timeDiff = Math.abs(today - latestPostDate);
                 const daysSinceLastPost = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
                 
-                document.getElementById('daysSincePost').textContent = `${daysSinceLastPost} days since the last post`;
+                document.getElementById('daysSincePost').textContent = `${daysSinceLastPost} day${daysSinceLastPost !== 1 ? 's' : ''} since the last post`;
             } else {
                 document.getElementById('daysSincePost').textContent = 'Unable to parse the date.';
             }
